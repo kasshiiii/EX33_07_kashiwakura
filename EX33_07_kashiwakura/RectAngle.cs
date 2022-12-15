@@ -43,12 +43,19 @@ namespace EX33
             return !(rectAngle1 == rectAngle2);
         }
 
-        public static float operator +(RectAngle rectAngle1, RectAngle rectAngle2)
+        public static RectAngle operator +(RectAngle rectAngle1, RectAngle rectAngle2)
         {
-            float choice1, choice2;
-            choice1 = (rectAngle1.height + rectAngle2.height) * MathF.Max(rectAngle1.width,rectAngle2.width);
-            choice2 = (rectAngle1.width + rectAngle2.width) * MathF.Max(rectAngle1.height, rectAngle2.height);
-            return MathF.Min(choice1, choice2);
+            RectAngle choice1, choice2;
+            choice1 = new RectAngle(MathF.Max(rectAngle1.width, rectAngle2.width), rectAngle1.height + rectAngle2.height);
+            choice2 = new RectAngle(rectAngle1.width + rectAngle2.width, MathF.Max(rectAngle1.height, rectAngle2.height));
+            if(choice1.width * choice1.height < choice2.width * choice2.height)
+            {
+                return choice1;
+            }
+            else
+            {
+                return choice2;
+            }
         }
     }
 }
