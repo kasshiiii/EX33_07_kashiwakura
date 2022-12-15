@@ -17,7 +17,7 @@ namespace EX33
                 Console.WriteLine("rectAngle1とrectAngle2は等しくない");
             }
             RectAngle rectAngle3 = rectAngle1 + rectAngle2;
-            Console.WriteLine($"2つの長方形が入る最小の長方形は {rectAngle3.width},{rectAngle3.height}");
+            Console.WriteLine($"2つの長方形が入る最小の長方形は ({rectAngle3.width},{rectAngle3.height})");
         }
     }
 }
