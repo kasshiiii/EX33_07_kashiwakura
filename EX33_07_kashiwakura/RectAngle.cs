@@ -45,18 +45,20 @@ namespace EX33
 
         public static RectAngle operator +(RectAngle rectAngle1, RectAngle rectAngle2)
         {
-            RectAngle choice1, choice2;
-            choice1 = new RectAngle(MathF.Max(rectAngle1.width, rectAngle2.width), rectAngle1.height + rectAngle2.height);
-            choice2 = new RectAngle(rectAngle1.width + rectAngle2.width, MathF.Max(rectAngle1.height, rectAngle2.height));
-            return choice1.width * choice1.height < choice2.width * choice2.height ? choice1 : choice2;
-            //if(choice1.width * choice1.height < choice2.width * choice2.height)
-            //{
-            //    return choice1;
-            //}
-            //else
-            //{
-            //    return choice2;
-            //}
+            int selectNumber = 0;
+            RectAngle[] choice = new RectAngle[4];
+            choice[0] = new RectAngle(rectAngle1.height + rectAngle2.height, MathF.Max(rectAngle1.width, rectAngle2.width));
+            choice[1] = new RectAngle(rectAngle1.width + rectAngle2.width, MathF.Max(rectAngle1.height, rectAngle2.height));
+            choice[2] = new RectAngle(rectAngle1.width + rectAngle2.height, MathF.Max(rectAngle1.height, rectAngle2.width));
+            choice[3] = new RectAngle(rectAngle1.height + rectAngle2.width, MathF.Max(rectAngle1.width, rectAngle2.height));
+            for(int i = 1; i < choice.Length; i++)
+            {
+                if (choice[i].width * choice[i].height < choice[selectNumber].width * choice[selectNumber].height)
+                {
+                    selectNumber = i;
+                }
+            }
+            return choice[selectNumber];
         }
     }
 }
