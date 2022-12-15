@@ -48,14 +48,15 @@ namespace EX33
             RectAngle choice1, choice2;
             choice1 = new RectAngle(MathF.Max(rectAngle1.width, rectAngle2.width), rectAngle1.height + rectAngle2.height);
             choice2 = new RectAngle(rectAngle1.width + rectAngle2.width, MathF.Max(rectAngle1.height, rectAngle2.height));
-            if(choice1.width * choice1.height < choice2.width * choice2.height)
-            {
-                return choice1;
-            }
-            else
-            {
-                return choice2;
-            }
+            return choice1.width * choice1.height < choice2.width * choice2.height ? choice1 : choice2;
+            //if(choice1.width * choice1.height < choice2.width * choice2.height)
+            //{
+            //    return choice1;
+            //}
+            //else
+            //{
+            //    return choice2;
+            //}
         }
     }
 }
