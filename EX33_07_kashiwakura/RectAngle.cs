@@ -48,7 +48,6 @@ namespace EX33
             float choice1, choice2;
             choice1 = (rectAngle1.height + rectAngle2.height) * MathF.Max(rectAngle1.width,rectAngle2.width);
             choice2 = (rectAngle1.width + rectAngle2.width) * MathF.Max(rectAngle1.height, rectAngle2.height);
-            Console.WriteLine($"{choice1} { choice2}");//確認用
             return MathF.Min(choice1, choice2);
         }
     }
